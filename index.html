@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DeepJarvis AI V2</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+<div class="bg"></div>
+
+<div class="ring r1"></div>
+<div class="ring r2"></div>
+
+<h1>DEEPJARVIS AI</h1>
+
+<p class="sub">
+⚡ Futuristic AI Assistant
+</p>
+
+<div class="chat">
+
+<div id="messages">
+
+<div class="bot">
+JARVIS: System Online.
+</div>
+
+</div>
+
+<div class="controls">
+
+<input
+id="msg"
+placeholder="Type a command..."
+>
+
+<button onclick="sendMsg()">
+Send
+</button>
+
+<button onclick="startVoice()">
+🎤
+</button>
+
+</div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
