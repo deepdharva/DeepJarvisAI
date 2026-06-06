@@ -1,5 +1,1 @@
-customtkinter
-pyttsx3
-SpeechRecognition
-sounddevice
-soundfile
+Flask
