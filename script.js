@@ -502,6 +502,34 @@ if(msg.includes("weather")){
 return "I understand: " + msg + ". AI backend will be connected soon.";
 }
 
+function typeReply(text){
+
+let i = 0;
+
+let div =
+document.createElement("div");
+
+div.className = "bot";
+
+document
+.getElementById("messages")
+.appendChild(div);
+
+let interval =
+setInterval(()=>{
+
+div.innerHTML += text.charAt(i);
+
+i++;
+
+if(i >= text.length){
+clearInterval(interval);
+}
+
+},20);
+
+}
+
 async function sendMsg(){
 
 let input =
@@ -537,9 +565,7 @@ await askAI(text);
 
 loading.remove();
 
-add(
-"JARVIS: " + reply,
-"bot"
+typeReply("JARVIS: " + reply);
 );
 
 }
