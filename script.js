@@ -1,7 +1,5 @@
 alert("Script Loaded Successfully");
 
-alert("Script Loaded Successfully");
-
 let username = localStorage.getItem("jarvis_user");
 
 if(!username){
@@ -15,20 +13,6 @@ if(!username){
         username
     );
 }
-
-let notes =
-JSON.parse(
-    localStorage.getItem(
-        "jarvis_notes"
-    )
-) || [];
-
-let tasks =
-JSON.parse(
-    localStorage.getItem(
-        "jarvis_tasks"
-    )
-) || [];
 
 let notes =
 JSON.parse(
