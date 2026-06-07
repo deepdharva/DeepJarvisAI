@@ -14,6 +14,13 @@ if(!username){
     );
 }
 
+if(
+localStorage.getItem("theme")
+==="light"
+){
+document.body.classList.add("light");
+}
+
 let notes =
 JSON.parse(
     localStorage.getItem(
@@ -53,6 +60,37 @@ function jarvisReply(msg){
 
     msg = msg.toLowerCase();
 
+if(msg.includes("clear chat")){
+
+document.getElementById(
+"messages"
+).innerHTML="";
+
+return "Chat Cleared.";
+}
+
+if(msg.includes("play music")){
+
+window.open(
+"https://open.spotify.com"
+);
+
+return "Opening Spotify 🎵";
+}
+
+if(msg.startsWith("wiki ")){
+
+let query =
+msg.replace("wiki ","");
+
+window.open(
+"https://en.wikipedia.org/wiki/" +
+query
+);
+
+return "Opening Wikipedia...";
+}
+
     // Simple calculations
 if(
     msg.includes("+") ||
@@ -80,24 +118,34 @@ if(
 
 }
 
-    if(msg.includes("light mode")){
+   if(msg.includes("light mode")){
 
-    document.body.classList.add(
-        "light"
-    );
+document.body.classList.add(
+"light"
+);
 
-    return "☀️ Light Mode Enabled";
+localStorage.setItem(
+"theme",
+"light"
+);
+
+return "☀️ Light Mode Enabled";
 }
 
 if(msg.includes("dark mode")){
 
-    document.body.classList.remove(
-        "light"
-    );
+document.body.classList.remove(
+"light"
+);
 
-    return "🌙 Dark Mode Enabled";
+localStorage.setItem(
+"theme",
+"dark"
+);
+
+return "🌙 Dark Mode Enabled";
 }
-
+    
     if(msg.includes("gtu")){
 
     window.open(
@@ -515,54 +563,66 @@ function startVoice(){
     };
 }
 
+// Visitor Counter
+
+let visits =
+localStorage.getItem("visits") || 0;
+
+visits++;
+
+localStorage.setItem(
+"visits",
+visits
+);
+
+document.getElementById(
+"visitorCount"
+).innerHTML =
+"Visits: " + visits;
+
 function showHelp(){
 
     alert(`
-🚀 DeepJarvis AI Features
+🤖 DeepJarvis Commands
 
-💬 Chat Commands
-• hi
-• time
-• date
-• joke
-• fact
-• motivation
+📌 General:
+hello
+time
+date
+who are you
 
-🌐 Open Websites
-• open youtube
-• open google
-• open github
-• open instagram
-• open gmail
-• open spotify
-• open whatsapp
-• open jiohotstar
-• open sonyliv
+🌐 Open Websites:
+open youtube
+open google
+open github
+open instagram
+open gmail
+open spotify
+open whatsapp
+open jiohotstar
+open sonyliv
 
-🔎 Search
-• search python
-• search virat kohli
+📝 Notes:
+note my text
+show notes
 
-📝 Notes
-• note chemistry assignment
-• show notes
+✅ Tasks:
+add task study chemistry
+show tasks
 
-✅ Tasks
-• add task complete project
-• show tasks
+🧮 Maths:
+5+7
+sqrt 64
+percentage 25 of 800
 
-🧮 Calculator
-• 5+5
-• 100/4
-• sqrt 144
-• percentage 25 of 100
+🎲 Fun:
+dice
+toss
+joke
+fact
+motivation
 
-🎲 Fun
-• dice
-• toss
-
-🎨 Appearance
-• dark mode
-• light mode
+🔎 Search:
+search python tutorial
 `);
 }
