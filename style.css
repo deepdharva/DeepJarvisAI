@@ -123,3 +123,36 @@ button:hover{
         transform:translate(-50%,-50%) rotate(0deg);
     }
 }
+
+.chat{
+    box-shadow:
+    0 0 20px rgba(0,191,255,.4);
+}
+
+input{
+    background:#0d1328;
+    color:white;
+    outline:none;
+}
+
+input::placeholder{
+    color:#aaa;
+}
+
+button{
+    transition:.3s;
+}
+
+button:hover{
+    box-shadow:
+    0 0 20px #00bfff;
+}
+
+#messages::-webkit-scrollbar{
+    width:8px;
+}
+
+#messages::-webkit-scrollbar-thumb{
+    background:#00bfff;
+    border-radius:10px;
+}
