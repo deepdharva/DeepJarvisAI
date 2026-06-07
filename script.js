@@ -366,7 +366,7 @@ if(msg.includes("open calculator")){
         return "Weather module will be connected soon.";
     }
 
-    if(msg.startsWith("search ")){
+   if(msg.startsWith("search ")){
 
     let query = msg.replace("search ","");
 
@@ -378,10 +378,7 @@ if(msg.includes("open calculator")){
     return "Searching Google for: " + query;
 }
 
-    return "Searching Google for: " + query;
-}
-
-    // Joke
+// Joke
 if(msg.includes("joke")){
     const jokes = [
         "Why do programmers prefer dark mode? Because light attracts bugs 😆",
@@ -425,8 +422,8 @@ if(msg.includes("news")){
 if(msg.includes("weather")){
     return "Weather module will be connected soon ☁️";
 }
-    
-    return "I understand: " + msg + ". AI backend will be connected soon.";
+
+return "I understand: " + msg + ". AI backend will be connected soon.";
 }
 
 function sendMsg(){
