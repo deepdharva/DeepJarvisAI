@@ -1,5 +1,35 @@
 alert("Script Loaded Successfully");
 
+alert("Script Loaded Successfully");
+
+let username = localStorage.getItem("jarvis_user");
+
+if(!username){
+
+    username = prompt(
+        "Welcome to DeepJarvis AI\n\nWhat should I call you?"
+    );
+
+    localStorage.setItem(
+        "jarvis_user",
+        username
+    );
+}
+
+let notes =
+JSON.parse(
+    localStorage.getItem(
+        "jarvis_notes"
+    )
+) || [];
+
+let tasks =
+JSON.parse(
+    localStorage.getItem(
+        "jarvis_tasks"
+    )
+) || [];
+
 let notes =
 JSON.parse(
     localStorage.getItem(
@@ -268,8 +298,8 @@ if(msg.includes("bye")){
 }
 
     if(msg.includes("hello") || msg.includes("hi")){
-        return "Hello Deep 👋 How can I help you today?";
-    }
+    return "Hello " + username + " 👋 How can I help you today?";
+}
 
     if(msg.includes("your name")){
         return "I am DeepJarvis AI, your futuristic assistant.";
@@ -494,4 +524,56 @@ function startVoice(){
 
         sendMsg();
     };
+}
+
+function showHelp(){
+
+    alert(`
+🚀 DeepJarvis AI Features
+
+💬 Chat Commands
+• hi
+• time
+• date
+• joke
+• fact
+• motivation
+
+🌐 Open Websites
+• open youtube
+• open google
+• open github
+• open instagram
+• open gmail
+• open spotify
+• open whatsapp
+• open jiohotstar
+• open sonyliv
+
+🔎 Search
+• search python
+• search virat kohli
+
+📝 Notes
+• note chemistry assignment
+• show notes
+
+✅ Tasks
+• add task complete project
+• show tasks
+
+🧮 Calculator
+• 5+5
+• 100/4
+• sqrt 144
+• percentage 25 of 100
+
+🎲 Fun
+• dice
+• toss
+
+🎨 Appearance
+• dark mode
+• light mode
+`);
 }
