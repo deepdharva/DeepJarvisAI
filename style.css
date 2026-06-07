@@ -156,3 +156,61 @@ button:hover{
     background:#00bfff;
     border-radius:10px;
 }
+
+.avatar{
+    font-size:70px;
+    margin:15px 0;
+
+    animation:pulse 2s infinite;
+
+    text-shadow:
+    0 0 15px #00bfff,
+    0 0 40px #00bfff;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.1);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+.bot{
+    background:
+    rgba(0,191,255,.2);
+
+    border-left:
+    4px solid #00bfff;
+}
+
+.user{
+    background:
+    rgba(255,255,255,.12);
+
+    border-left:
+    4px solid white;
+}
+
+#messages{
+    padding:10px;
+}
+
+@media(max-width:700px){
+
+    .chat{
+        width:95%;
+    }
+
+    input{
+        width:90%;
+        margin-bottom:10px;
+    }
+}
