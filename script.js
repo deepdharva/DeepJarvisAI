@@ -421,10 +421,6 @@ if(msg.includes("open maps")){
     window.open("https://maps.google.com");
     return "Opening Google Maps 🗺️";
 }
-
-if(msg.includes("open calculator")){
-    return "Calculator module will be added soon 🧮";
-}
     
     if(msg.includes("open youtube")){
         window.open("https://youtube.com");
@@ -445,11 +441,7 @@ if(msg.includes("open calculator")){
         window.open("https://instagram.com");
         return "Opening Instagram...";
     }
-
-    if(msg.includes("weather")){
-        return "Weather module will be connected soon.";
-    }
-
+        
    if(msg.startsWith("search ")){
 
     let query = msg.replace("search ","");
