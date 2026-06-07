@@ -1,5 +1,3 @@
-alert("Script Loaded Successfully");
-
 let username = localStorage.getItem("jarvis_user");
 
 if(!username){
