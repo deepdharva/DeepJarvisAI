@@ -321,7 +321,7 @@ if(msg.includes("open facebook")){
     return "Opening Facebook 🌐";
 }
 
-if(msg.includes("x")){
+if(msg.includes("open x")){
     window.open("https://x.com");
     return "Opening X (Twitter) 🐦";
 }
@@ -364,12 +364,17 @@ if(msg.includes("open calculator")){
         return "Weather module will be connected soon.";
     }
 
-    if(msg.startsWith("I want to search something")){
+    if(msg.startsWith("search ")){
+
     let query = msg.replace("search ","");
+
     window.open(
         "https://www.google.com/search?q=" +
         encodeURIComponent(query)
     );
+
+    return "Searching Google for: " + query;
+}
 
     return "Searching Google for: " + query;
 }
