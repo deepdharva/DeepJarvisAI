@@ -547,11 +547,10 @@ await askAI(text);
 
 loading.remove();
 
-typeReply(
-"JARVIS: " + reply
+add(
+"JARVIS: " + reply,
+"bot"
 );
-
-speak(reply);
 
 }
 catch{
