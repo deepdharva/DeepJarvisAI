@@ -491,8 +491,3 @@ function startVoice(){
         sendMsg();
     };
 }
-
-.light{
-    background:white !important;
-    color:black !important;
-}
