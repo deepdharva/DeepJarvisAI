@@ -1,3 +1,5 @@
+alert("Script Loaded Successfully");
+
 let notes =
 JSON.parse(
     localStorage.getItem(
