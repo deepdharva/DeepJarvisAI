@@ -219,3 +219,13 @@ button:hover{
     background:white !important;
     color:black !important;
 }
+
+.thinking{
+animation: blink 1s infinite;
+}
+
+@keyframes blink{
+0%{opacity:0.3;}
+50%{opacity:1;}
+100%{opacity:0.3;}
+}
