@@ -21,6 +21,30 @@ localStorage.getItem("theme")
 document.body.classList.add("light");
 }
 
+async function askAI(message){
+
+const response =
+await fetch(
+"https://YOUR-RENDER-URL.onrender.com/chat",
+{
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+message:message
+})
+}
+);
+
+const data =
+await response.json();
+
+return data.reply;
+}
+
 let notes =
 JSON.parse(
     localStorage.getItem(
@@ -488,37 +512,60 @@ if(msg.includes("weather")){
 return "I understand: " + msg + ". AI backend will be connected soon.";
 }
 
-function sendMsg(){
+async function sendMsg(){
 
-    let input =
-    document.getElementById("msg");
+let input =
+document.getElementById("msg");
 
-    let text = input.value.trim();
+let text =
+input.value.trim();
 
-    if(text === "") return;
+if(text==="") return;
 
-    add("YOU: " + text,"user");
+add(
+"YOU: " + text,
+"user"
+);
 
-    input.value = "";
+input.value="";
 
-    add("JARVIS is thinking...","bot");
+add(
+"JARVIS is thinking...",
+"bot"
+);
 
-    setTimeout(()=>{
+let msgs =
+document.querySelectorAll(".bot");
 
-        let msgs =
-        document.querySelectorAll(".bot");
+let loading =
+msgs[msgs.length-1];
 
-        msgs[msgs.length-1].remove();
-        
-        add(
-            "JARVIS: " +
-            jarvisReply(text),
-            "bot"
-        );
+try{
 
-    },1000);
+let reply =
+await askAI(text);
+
+loading.remove();
+
+typeReply(
+"JARVIS: " + reply
+);
+
+speak(reply);
+
+}
+catch{
+
+loading.remove();
+
+add(
+"JARVIS: Backend Offline",
+"bot"
+);
+
 }
 
+}
 document
 .getElementById("msg")
 .addEventListener("keypress",function(e){
