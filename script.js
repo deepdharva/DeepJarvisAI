@@ -509,11 +509,6 @@ function sendMsg(){
         document.querySelectorAll(".bot");
 
         msgs[msgs.length-1].remove();
-
-add(
-"JARVIS is thinking...",
-"bot thinking"
-);
         
         add(
             "JARVIS: " +
