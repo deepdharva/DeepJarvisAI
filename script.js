@@ -21,15 +21,9 @@ document.body.classList.add("light");
 
 async function askAI(message){
 
-const response =
-await fetch(
-"https://YOUR-RENDER-URL.onrender.com/chat",
-{
-method:"POST",
-
-headers:{
-"Content-Type":"application/json"
-},
+return jarvisReply(message);
+    
+}
 
 body:JSON.stringify({
 message:message
@@ -566,7 +560,6 @@ await askAI(text);
 loading.remove();
 
 typeReply("JARVIS: " + reply);
-);
 
 }
 catch{
