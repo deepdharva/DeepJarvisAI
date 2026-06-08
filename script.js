@@ -1,3 +1,5 @@
+console.log("DeepJarvis Loaded");
+
 let username = localStorage.getItem("jarvis_user");
 
 if(!username){
@@ -23,18 +25,6 @@ async function askAI(message){
 
 return jarvisReply(message);
     
-}
-
-body:JSON.stringify({
-message:message
-})
-}
-);
-
-const data =
-await response.json();
-
-return data.reply;
 }
 
 let notes =
