@@ -514,6 +514,18 @@ clearInterval(interval);
 
 }
 
+function speak(text){
+
+let speech =
+new SpeechSynthesisUtterance(text);
+
+speech.rate = 1;
+speech.pitch = 1;
+
+speechSynthesis.speak(speech);
+
+}
+
 async function sendMsg(){
 
 let input =
@@ -550,6 +562,8 @@ await askAI(text);
 loading.remove();
 
 typeReply("JARVIS: " + reply);
+
+speak(reply);
 
 }
 catch{
@@ -619,6 +633,23 @@ document.getElementById(
 "visitorCount"
 ).innerHTML =
 "Visits: " + visits;
+
+function toggleTheme(){
+
+document.body.classList.toggle(
+"light"
+);
+
+}
+
+function clearChat(){
+
+document.getElementById(
+"messages"
+).innerHTML =
+'<div class="bot">JARVIS: System Online.</div>';
+
+}
 
 function showHelp(){
 
