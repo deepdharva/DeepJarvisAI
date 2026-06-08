@@ -3,7 +3,9 @@ body{
     color:white;
     font-family:Segoe UI;
     text-align:center;
-    overflow:hidden;
+    
+    overflow-x:hidden;
+    overflow-y:auto;
 }
 
 .bg{
