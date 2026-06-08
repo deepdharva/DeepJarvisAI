@@ -1,3 +1,5 @@
+let history = [];
+
 console.log("DeepJarvis Loaded");
 
 let username = localStorage.getItem("jarvis_user");
@@ -41,6 +43,17 @@ JSON.parse(
     )
 ) || [];
 
+window.onload = function(){
+
+add(
+"JARVIS: Welcome " +
+username +
+" 🚀",
+"bot"
+);
+
+}
+
 function add(text, cls){
 
     let d =
@@ -73,6 +86,25 @@ document.getElementById(
 ).innerHTML="";
 
 return "Chat Cleared.";
+}
+
+if(msg.startsWith("change name ")){
+
+let newName =
+msg.replace(
+"change name ",
+""
+);
+
+username = newName;
+
+localStorage.setItem(
+"jarvis_user",
+newName
+);
+
+return "Name changed to " +
+newName;
 }
 
 if(msg.includes("play music")){
@@ -114,6 +146,15 @@ if(
         }
     }
     catch(e){}
+}
+
+if(msg.includes("history")){
+
+    if(history.length === 0){
+        return "No calculation history found.";
+    }
+
+    return history.join("<br>");
 }
 
     if(msg.includes("toss")){
@@ -235,6 +276,18 @@ if(msg.includes("show notes")){
     return notes.join(" | ");
 }
 
+if(msg.includes("clear notes")){
+
+notes = [];
+
+localStorage.setItem(
+"jarvis_notes",
+JSON.stringify(notes)
+);
+
+return "All notes deleted.";
+}
+
     if(msg.startsWith("add task ")){
 
     let task =
@@ -266,6 +319,35 @@ if(msg.includes("show tasks")){
         return "No tasks.";
 
     return tasks.join(" | ");
+}
+
+if(msg.includes("clear tasks")){
+
+tasks = [];
+
+localStorage.setItem(
+"jarvis_tasks",
+JSON.stringify(tasks)
+);
+
+return "All tasks deleted.";
+}
+
+if(msg.includes("battery")){
+
+navigator.getBattery()
+.then(function(battery){
+
+alert(
+"Battery: " +
+Math.round(
+battery.level*100
+) + "%"
+);
+
+});
+
+return "Checking battery...";
 }
 
     if(msg.startsWith("sqrt ")){
@@ -559,11 +641,23 @@ try{
 let reply =
 await askAI(text);
 
+// Random thinking time
+let thinkingTime =
+Math.floor(
+Math.random()*3000
+) + 2000; // 2 to 5 sec
+
+setTimeout(()=>{
+
 loading.remove();
 
-typeReply("JARVIS: " + reply);
+typeReply(
+"JARVIS: " + reply
+);
 
 speak(reply);
+
+}, thinkingTime);
 
 }
 catch{
