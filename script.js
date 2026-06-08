@@ -747,90 +747,16 @@ document.getElementById(
 
 function showHelp(){
 
-alert(`
-🤖 DeepJarvis AI Commands
+document
+.getElementById("helpModal")
+.style.display = "flex";
 
-📌 General:
-hello
-hi
-how are you
-who are you
-your name
-who made you
-time
-date
-bye
+}
 
-👤 User:
-change name YourName
+function closeHelp(){
 
-🌐 Open Websites:
-open youtube
-open google
-open github
-open instagram
-open gmail
-open spotify
-open whatsapp
-open facebook
-open x
-open twitter
-open chatgpt
-open gemini
-open maps
-open jiohotstar
-open sonyliv
-gtu
-linkedin
-canva
+document
+.getElementById("helpModal")
+.style.display = "none";
 
-🎵 Entertainment:
-play music
-
-📚 Knowledge:
-wiki india
-wiki python
-
-📝 Notes:
-note my text
-show notes
-clear notes
-
-✅ Tasks:
-add task study chemistry
-show tasks
-clear tasks
-
-🧮 Maths:
-5+7
-25*4
-100/5
-sqrt 64
-percentage 25 of 800
-
-🎲 Fun:
-dice
-roll
-toss
-joke
-fact
-motivation
-random number
-
-🔎 Search:
-search python tutorial
-search gtu result
-
-⚙️ System:
-light mode
-dark mode
-battery
-clear chat
-
-🎤 Voice:
-Use Mic button and speak
-
-🚀 DeepJarvis AI V2
-Created by Deep Dharva
-`);
 }
