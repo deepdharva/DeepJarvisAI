@@ -297,18 +297,25 @@ color:red;
 }
 
 .help-body{
-
 line-height:1.8;
-
 }
 
+.modal-content{
 animation:popup .3s ease;
+}
 
 @keyframes popup{
 
 from{
 transform:scale(.7);
 opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
+
 }
 
 to{
