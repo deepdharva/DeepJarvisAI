@@ -777,6 +777,15 @@ document.getElementById(
 
 }
 
+function openFeedback(){
+
+window.open(
+"https://docs.google.com/forms/d/e/1FAIpQLSepVXTCDqfVEhPq-Ve8d8qcr8nKJWSDhYmpGRfxWYA8BNqhpA/viewform",
+"_blank"
+);
+
+}
+
 function showHelp(){
 
 document
