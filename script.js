@@ -1,6 +1,6 @@
 let history = [];
 
-console.log("DeepJarvis Loaded");
+alert("DeepJarvis AI Loaded successfully");
 
 let username = localStorage.getItem("jarvis_user");
 
@@ -747,14 +747,22 @@ document.getElementById(
 
 function showHelp(){
 
-    alert(`
-🤖 DeepJarvis Commands
+alert(`
+🤖 DeepJarvis AI Commands
 
 📌 General:
 hello
+hi
+how are you
+who are you
+your name
+who made you
 time
 date
-who are you
+bye
+
+👤 User:
+change name YourName
 
 🌐 Open Websites:
 open youtube
@@ -764,30 +772,65 @@ open instagram
 open gmail
 open spotify
 open whatsapp
+open facebook
+open x
+open twitter
+open chatgpt
+open gemini
+open maps
 open jiohotstar
 open sonyliv
+gtu
+linkedin
+canva
+
+🎵 Entertainment:
+play music
+
+📚 Knowledge:
+wiki india
+wiki python
 
 📝 Notes:
 note my text
 show notes
+clear notes
 
 ✅ Tasks:
 add task study chemistry
 show tasks
+clear tasks
 
 🧮 Maths:
 5+7
+25*4
+100/5
 sqrt 64
 percentage 25 of 800
 
 🎲 Fun:
 dice
+roll
 toss
 joke
 fact
 motivation
+random number
 
 🔎 Search:
 search python tutorial
+search gtu result
+
+⚙️ System:
+light mode
+dark mode
+battery
+clear chat
+
+🎤 Voice:
+Use Mic button and speak
+
+🚀 DeepJarvis AI V2
+Created by Deep Dharva
 `);
 }
