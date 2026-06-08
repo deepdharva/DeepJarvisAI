@@ -1,6 +1,6 @@
 let history = [];
 
-alert("DeepJarvis AI Loaded successfully");
+//alert("DeepJarvis AI Loaded successfully");
 
 let username = localStorage.getItem("jarvis_user");
 
@@ -79,6 +79,16 @@ function jarvisReply(msg){
 
     msg = msg.toLowerCase();
 
+if(msg.includes("version")){
+
+return `
+DeepJarvis AI
+Version: 2.5
+Creator: Deep Dharva
+`;
+
+}
+
 if(msg.includes("clear chat")){
 
 document.getElementById(
@@ -141,9 +151,14 @@ if(
             '"use strict"; return (' + msg + ')'
         )();
 
-        if(!isNaN(result)){
-            return "Answer = " + result;
-        }
+       if(!isNaN(result)){
+
+    history.push(
+        msg + " = " + result
+    );
+
+    return "Answer = " + result;
+}
     }
     catch(e){}
 }
@@ -733,6 +748,23 @@ function toggleTheme(){
 document.body.classList.toggle(
 "light"
 );
+
+if(
+document.body.classList.contains(
+"light"
+)
+){
+localStorage.setItem(
+"theme",
+"light"
+);
+}
+else{
+localStorage.setItem(
+"theme",
+"dark"
+);
+}
 
 }
 
